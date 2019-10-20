@@ -8,7 +8,7 @@
  * This function will grouping array item
  * into object based on given key
  */
-const groupKey = (value, keyIndex) => {
+const objGroup = (value, keyIndex) => {
     const result = {};
     value.forEach((v) => {
         const vArray = [];
@@ -25,5 +25,4 @@ const groupKey = (value, keyIndex) => {
     });
     return result;
 };
-module.exports = groupKey;
-
+module.exports = objGroup;

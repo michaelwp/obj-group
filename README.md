@@ -1,13 +1,13 @@
-# group-key
+# obj-group
 module for helping to group array item into an object with a key that self-determined
 
 ## How To Use
 
-``` npm i empty-checker --save ```
+``` npm i obj-group --save ```
 
 ```javascript
 // <Import the function>
-const groupKey = require('group-key');
+const objGroup = require('obj-group');
 
 //input data in array form :
 const value = [
@@ -18,7 +18,7 @@ const value = [
     ['phantom assasin', 'agility', 'melee'],
     ['windrunner', 'intelligence', 'ranged']];
 
-const actualRes = groupKey(value, 1);
+const actualRes = objGroup(value, 1);
 console.log(actualRes);
 
 ```
