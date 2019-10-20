@@ -18,13 +18,15 @@ const objGroup = (value, keyIndex) => {
             }
         });
         if (result[v[keyIndex]] === undefined) {
-            // result[v[keyIndex]] = [vArray];
-            console.warn("Key Index out of range")
-            return { errorMsg: "Key Index out of range." }
+            result[v[keyIndex]] = [vArray];
         } else {
             result[v[keyIndex]].push(vArray);
         }
     });
+    if (result[undefined]) {
+        console.warn("Key Index out of range")
+        return { errorMsg: "Key Index out of range." }
+    }
     return result;
 };
 module.exports = objGroup;
