@@ -23,6 +23,10 @@ const objGroup = (value, keyIndex) => {
             result[v[keyIndex]].push(vArray);
         }
     });
+    if (result[undefined]) {
+        console.warn("Key Index out of range")
+        return { errorMsg: "Key Index out of range." }
+    }
     return result;
 };
 module.exports = objGroup;
