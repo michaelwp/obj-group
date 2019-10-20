@@ -1,4 +1,4 @@
-const groupKey = require('./index');
+const objGroup = require('./index');
 const assert = require('assert');
 
 //data testing :
@@ -18,7 +18,7 @@ const expectedRes = {
     intelligence: [['crystal maiden', 'ranged'], ['windrunner', 'ranged']]
 };
 // the actual result :
-const actualRes = groupKey(value, 1);
+const actualRes = objGroup(value, 1);
 
 // compare the type of :
 assert.strictEqual(typeof expectedRes, typeof actualRes, "both type of are object");
