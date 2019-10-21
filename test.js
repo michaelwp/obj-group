@@ -87,6 +87,10 @@ for (const e in expectedRes) {
   })
 }
 
+assert.deepEqual(objGroup([1, 2, 3]), {
+  errorMsg: 'Invalid input struct, input must like [[1,2,3], [1,2,3], [1,2,3]]',
+})
+
 objGroup(invalidValue)
 
 console.log('test running successfully')
