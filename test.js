@@ -8,7 +8,8 @@ const value = [
     ['tusk', 'strength', 'melee'],
     ['crystal maiden', 'intelligence', 'ranged'],
     ['phantom assasin', 'agility', 'melee'],
-    ['windrunner', 'intelligence', 'ranged']];
+    ['windrunner', 'intelligence', 'ranged']
+];
 
 
 // expected result :
@@ -55,5 +56,5 @@ for (const e in expectedRes) {
     });
 
 }
-
+console.log(actualRes);
 console.log("test running successfully");

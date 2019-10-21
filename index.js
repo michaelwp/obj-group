@@ -11,13 +11,6 @@
 const objGroup = (value, keyIndex) => {
     const result = {};
     value.forEach((v) => {
-        // Return warning if length of array item is less than 2
-        if (v.length < 2) {
-            const warnMsg = "Array item length inside array data must be >= 2.";
-            console.warn(warnMsg);
-            return { warnMsg: warnMsg };
-        }
-
         const vArray = [];
         v.forEach((item, index) => {
             if (index !== keyIndex) {
