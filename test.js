@@ -55,5 +55,5 @@ for (const e in expectedRes) {
     });
 
 }
-
+console.log(actualRes);
 console.log("test running successfully");
