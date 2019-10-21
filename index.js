@@ -9,36 +9,36 @@
  * into object based on given key
  */
 const objGroup = (value, keyIndex) => {
-    let msg = "Type of value must be Array."
     const result = {};
-    if (Array.isArray(value)) {
-        value.forEach((v) => {
-            if (Array.isArray(v)) {
-                const vArray = [];
-                v.map((item, index) => {
-                    if (index !== keyIndex) {
-                        vArray.push(item);
-                    }
-                });
-                let res = result[v[keyIndex]]
-                if (res === undefined) {
-                    res = [vArray];
-                } else {
-                    res.push(vArray);
-                }
-            } else {
-                console.warn(msg)
-                return { errorMsg: msg }
+    value.forEach((v) => {
+        // Return warning if length of array item is less than 2
+        if (v.length < 2) {
+            const warnMsg = "Array item length inside array data must be >= 2.";
+            console.warn(warnMsg);
+            return { warnMsg: warnMsg };
+        }
+
+        const vArray = [];
+        v.forEach((item, index) => {
+            if (index !== keyIndex) {
+                vArray.push(item);
             }
         });
-        if (result[undefined]) {
-            console.warn("Key Index out of range")
-            return { errorMsg: "Key Index out of range." }
+        if (result[v[keyIndex]] === undefined) {
+            result[v[keyIndex]] = [vArray];
+        } else {
+            result[v[keyIndex]].push(vArray);
         }
-        return result;
-    } else {
-        console.warn(msg)
-        return { errorMsg: msg }
+        
+        // Merge groups if array length === 2
+        if (v.length === 2) {
+            result[v[keyIndex]] = [].concat(...result[v[keyIndex]]);
+        }
+    });
+    if (result[undefined]) {
+        console.warn("Key Index out of range")
+        return { errorMsg: "Key Index out of range." }
     }
+    return result;
 };
 module.exports = objGroup;
