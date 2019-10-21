@@ -9,24 +9,36 @@
  * into object based on given key
  */
 const objGroup = (value, keyIndex) => {
+    let msg = "Type of value must be Array."
     const result = {};
-    value.forEach((v) => {
-        const vArray = [];
-        v.forEach((item, index) => {
-            if (index !== keyIndex) {
-                vArray.push(item);
+    if (Array.isArray(value)) {
+        value.forEach((v) => {
+            if (Array.isArray(v)) {
+                const vArray = [];
+                v.map((item, index) => {
+                    if (index !== keyIndex) {
+                        vArray.push(item);
+                    }
+                });
+                let res = result[v[keyIndex]]
+                if (res === undefined) {
+                    res = [vArray];
+                } else {
+                    res.push(vArray);
+                }
+            } else {
+                console.warn(msg)
+                return { errorMsg: msg }
             }
         });
-        if (result[v[keyIndex]] === undefined) {
-            result[v[keyIndex]] = [vArray];
-        } else {
-            result[v[keyIndex]].push(vArray);
+        if (result[undefined]) {
+            console.warn("Key Index out of range")
+            return { errorMsg: "Key Index out of range." }
         }
-    });
-    if (result[undefined]) {
-        console.warn("Key Index out of range")
-        return { errorMsg: "Key Index out of range." }
+        return result;
+    } else {
+        console.warn(msg)
+        return { errorMsg: msg }
     }
-    return result;
 };
 module.exports = objGroup;
