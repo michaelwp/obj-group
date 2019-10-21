@@ -12,7 +12,7 @@
 const Messages = {
   InvalidStruct:
     'Invalid input struct, input must like [[1,2,3], [1,2,3], [1,2,3]]',
-}
+};
 
 const objGroup = (value, keyIndex) => {
   if (!Array.isArray(value) || !value.every(v => Array.isArray(v))) {
@@ -22,14 +22,14 @@ const objGroup = (value, keyIndex) => {
   if (value.some(v => v.length < 2)) {
     console.warn('[obj-group-warning]: invalid input data')
   }
-  const result = {}
+  const result = {};
   value.forEach(v => {
-    const vArray = []
+    const vArray = [];
     v.forEach((item, index) => {
       if (index !== keyIndex) {
         vArray.push(item)
       }
-    })
+    });
     if (result[v[keyIndex]] === undefined) {
       result[v[keyIndex]] = [vArray]
     } else {
@@ -40,11 +40,11 @@ const objGroup = (value, keyIndex) => {
         if (v.length === 2) {
             result[v[keyIndex]] = [].concat(...result[v[keyIndex]]);
         }
-  })
+  });
   if (result[undefined]) {
-    console.warn('Key Index out of range')
+    console.warn('Key Index out of range');
     return { errorMsg: 'Key Index out of range.' }
   }
   return result
-}
+};
 module.exports = objGroup
