@@ -2,11 +2,11 @@
 module for helping to group array item into an object with a key that self-determined
 
 ## version history
-* v1.0.0 - the very first version
+* ###### v1.0.0 - the very first version
 ```
 Hello World :)
 ```
-* v1.0.1 - the latest version
+* ###### v1.0.1 - the latest version
 ``` 
  - handling input data
  - add handling error messages
