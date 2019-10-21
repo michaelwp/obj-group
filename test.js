@@ -92,5 +92,4 @@ assert.deepStrictEqual(objGroup([1, 2, 3]), {
 });
 
 objGroup(invalidValue);
-
 console.log('test running successfully');
