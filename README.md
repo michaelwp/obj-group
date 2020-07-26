@@ -1,43 +1,43 @@
 # obj-group
-module for helping to group array item into an object with a key that self-determined
+Módulo para agrupar elementos de un array, dentro de un objeto, auto-asignando los keys.
 
-## version history
-* ##### v1.0.0 - the very first version
+## Historial de versiones
+* ##### v1.0.0 - la primera versión
 ```
-Hello World :)
+Hola Mundo :)
 ```
-* ##### v1.0.1 - the latest version
-``` 
- - handling input data
- - add handling error messages
+* ##### v1.0.1 - la versión más reciente
+```
+ - manejo de datos de ingresados por el usuario
+ - mensajes de error en el manejo de datos han sido agregados
 ```
 
-## How To Use
+## Uso
 
 ``` npm i obj-group --save ```
 
 ```javascript
-// <Import the function>
+// <Importar la función>
 const objGroup = require('obj-group');
 
-//input data in array form :
-const value = [
-    ['sniper', 'agility', "ranged"],
-    ['axe', 'strength', 'melee'],
-    ['tusk', 'strength', 'melee'],
-    ['crystal maiden', 'intelligence', 'ranged'],
-    ['phantom assasin', 'agility', 'melee'],
-    ['windrunner', 'intelligence', 'ranged']];
+//agregar datos a manera de array:
+const valor = [
+    ['francotirador', 'agilidad', "a distancia"],
+    ['hacha', 'fuerza', 'cuerpo a cuerpo'],
+    ['colmillo', 'fuerza', 'cuerpo a cuerpo'],
+    ['doncella de cristal', 'inteligencia', 'a distancia'],
+    ['asesino de fantasmas', 'agilidad', 'cuerpo a cuerpo'],
+    ['veloz', 'inteligencia', 'a distancia']];
 
-const actualRes = objGroup(value, 1);
+const actualRes = objGroup(valor, 1);
 console.log(actualRes);
 
 ```
 ### result :
 ```
 {
-    strength: [['axe', 'melee'], ['tusk', 'melee']],
-    agility: [['sniper', 'ranged'], ['phantom assasin', 'melee']],
-    intelligence: [['crystal maiden', 'ranged'], ['windrunner', 'ranged']]
+    fuerza: [['hacha', 'cuerpo a cuerpo'], ['colmillo', 'cuerpo a cuerpo']],
+    agilidad: [['francotirador', 'a distancia'], ['asesino de fantasmas', 'cuerpo a cuerpo']],
+    inteligencia: [['doncella de cristal', 'a distancia'], ['veloz', 'a distancia']]
 }
 ```
