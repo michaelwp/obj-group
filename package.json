@@ -17,5 +17,5 @@
     "url": "https://github.com/michaelwp/obj-group/issues"
   },
   "homepage": "https://github.com/michaelwp/obj-group#readme",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": { "registry": "https://npm.pkg.github.com/michaelwp" }
 }
